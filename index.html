@@ -16,10 +16,9 @@
             background: #1a1410;
             display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: 100vh;
             padding: 20px;
             font-family: 'Cairo', sans-serif;
+            min-height: 100vh;
         }
 
         .container {
@@ -78,6 +77,7 @@
             font-weight: 600;
         }
 
+        /* ===== الأقسام ===== */
         .grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -103,90 +103,80 @@
 
         .btn:hover {
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
         }
 
         .btn:active {
             transform: translateY(0px) scale(0.98);
         }
 
+        /* الألوان */
         .color-gold {
             background: linear-gradient(145deg, #8b6f4c, #6d5438);
         }
         .color-gold:hover {
             background: linear-gradient(145deg, #a0805a, #7d6242);
         }
-
         .color-amber {
             background: linear-gradient(145deg, #a67c4e, #7a5c38);
         }
         .color-amber:hover {
             background: linear-gradient(145deg, #b88e5e, #8a6a44);
         }
-
         .color-burgundy {
             background: linear-gradient(145deg, #6d3a4a, #4f2835);
         }
         .color-burgundy:hover {
             background: linear-gradient(145deg, #834a5c, #5d3040);
         }
-
         .color-teal {
             background: linear-gradient(145deg, #2d5e5e, #1d4242);
         }
         .color-teal:hover {
             background: linear-gradient(145deg, #3a7272, #255050);
         }
-
         .color-charcoal {
             background: linear-gradient(145deg, #4a4a4a, #2e2e2e);
         }
         .color-charcoal:hover {
             background: linear-gradient(145deg, #5a5a5a, #3a3a3a);
         }
-
         .color-navy {
             background: linear-gradient(145deg, #2a3f5e, #1a2a42);
         }
         .color-navy:hover {
             background: linear-gradient(145deg, #365074, #223456);
         }
-
         .color-olive {
             background: linear-gradient(145deg, #4d5440, #33382a);
         }
         .color-olive:hover {
             background: linear-gradient(145deg, #5d6650, #3d4434);
         }
-
         .color-plum {
             background: linear-gradient(145deg, #5e3a5e, #422442);
         }
         .color-plum:hover {
             background: linear-gradient(145deg, #724872, #503050);
         }
-
         .color-rust {
             background: linear-gradient(145deg, #7a4a32, #553225);
         }
         .color-rust:hover {
             background: linear-gradient(145deg, #8e5840, #66402e);
         }
-
         .color-slate {
             background: linear-gradient(145deg, #4a505a, #32363e);
         }
         .color-slate:hover {
             background: linear-gradient(145deg, #5a626e, #3e424c);
         }
-
         .color-moss {
             background: linear-gradient(145deg, #4d5a3a, #343f28);
         }
         .color-moss:hover {
             background: linear-gradient(145deg, #5d6e46, #3e4d30);
         }
-
         .color-copper {
             background: linear-gradient(145deg, #7a5a3a, #5a4230);
         }
@@ -200,11 +190,9 @@
             font-size: 15px;
             border-radius: 14px;
         }
-
         .half {
             grid-column: span 2;
         }
-
         .section-title {
             font-size: 16px;
             font-weight: 800;
@@ -212,7 +200,6 @@
             border: 1px solid rgba(255, 215, 180, 0.08);
             position: relative;
         }
-
         .section-title::after {
             content: "✦";
             position: absolute;
@@ -221,6 +208,79 @@
             transform: translateY(-50%);
             font-size: 12px;
             opacity: 0.5;
+        }
+
+        /* ===== المنتجات مع الصور ===== */
+        .products-container {
+            margin-top: 15px;
+            display: none;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            padding: 10px 0;
+            border-top: 1px solid #3d322b;
+        }
+
+        .products-container.active {
+            display: grid;
+        }
+
+        .product-card {
+            background: #1a1410;
+            border-radius: 14px;
+            padding: 12px 8px;
+            text-align: center;
+            border: 1px solid #3d322b;
+            transition: 0.2s;
+        }
+
+        .product-card:hover {
+            border-color: #b8956e;
+            transform: scale(1.02);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 6px;
+            background: #2a211c;
+        }
+
+        .product-name {
+            color: #d4c5b2;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .product-price {
+            color: #b8956e;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .product-price::before {
+            content: "﷼ ";
+        }
+
+        .add-btn {
+            background: #b8956e;
+            border: none;
+            border-radius: 8px;
+            padding: 5px 12px;
+            color: #1a1410;
+            font-weight: 700;
+            font-size: 12px;
+            cursor: pointer;
+            margin-top: 6px;
+            transition: 0.2s;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .add-btn:hover {
+            background: #d4b08a;
+            transform: scale(1.05);
         }
 
         .footer {
@@ -244,57 +304,636 @@
 
         <div class="grid">
 
-            <button class="btn full section-title color-gold">دينيميرات رجال أوفر سايز</button>
+            <!-- ===== قسم الرجال ===== -->
+            <button class="btn full section-title color-gold" onclick="toggleProducts('products-men')">دينيميرات رجال أوفر سايز</button>
+            <div id="products-men" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/jean1/200/200" alt="جينز أسود">
+                    <div class="product-name">جينز أسود</div>
+                    <div class="product-price">89</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/jean2/200/200" alt="جينز أزرق">
+                    <div class="product-name">جينز أزرق</div>
+                    <div class="product-price">79</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/jean3/200/200" alt="جينز رمادي">
+                    <div class="product-name">جينز رمادي</div>
+                    <div class="product-price">99</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/jean4/200/200" alt="جينز كحلي">
+                    <div class="product-name">جينز كحلي</div>
+                    <div class="product-price">85</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
 
-            <button class="btn color-amber">كل</button>
-            <button class="btn color-burgundy">تسوق</button>
-            <button class="btn color-teal">أطفال</button>
+            <!-- ===== كل ===== -->
+            <button class="btn color-amber" onclick="toggleProducts('products-all')">كل</button>
+            <div id="products-all" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/all1/200/200" alt="منتج 1">
+                    <div class="product-name">منتج 1</div>
+                    <div class="product-price">50</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/all2/200/200" alt="منتج 2">
+                    <div class="product-name">منتج 2</div>
+                    <div class="product-price">60</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
 
-            <button class="btn half color-navy">التمويل التجاري</button>
-            <button class="btn half color-olive">تجارب وطلبات التم</button>
+            <!-- ===== تسوق ===== -->
+            <button class="btn color-burgundy" onclick="toggleProducts('products-shop')">تسوق</button>
+            <div id="products-shop" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/shop1/200/200" alt="تشكيلة 1">
+                    <div class="product-name">تشكيلة 1</div>
+                    <div class="product-price">45</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/shop2/200/200" alt="تشكيلة 2">
+                    <div class="product-name">تشكيلة 2</div>
+                    <div class="product-price">55</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
 
-            <button class="btn color-plum">تجربة</button>
+            <!-- ===== أطفال ===== -->
+            <button class="btn color-teal" onclick="toggleProducts('products-kids')">أطفال</button>
+            <div id="products-kids" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/kid1/200/200" alt="بيبي جاكيت">
+                    <div class="product-name">بيبي جاكيت</div>
+                    <div class="product-price">65</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/kid2/200/200" alt="حذاء أطفال">
+                    <div class="product-name">حذاء أطفال</div>
+                    <div class="product-price">49</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
 
-            <button class="btn full section-title color-rust">متجر الترندات</button>
+            <!-- ===== التمويل التجاري ===== -->
+            <button class="btn half color-navy" onclick="toggleProducts('products-finance')">التمويل التجاري</button>
+            <div id="products-finance" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/fin1/200/200" alt="خدمة 1">
+                    <div class="product-name">خدمة 1</div>
+                    <div class="product-price">0</div>
+                    <button class="add-btn">📞 تواصل</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/fin2/200/200" alt="خدمة 2">
+                    <div class="product-name">خدمة 2</div>
+                    <div class="product-price">0</div>
+                    <button class="add-btn">📞 تواصل</button>
+                </div>
+            </div>
 
-            <button class="btn color-slate">إطلالات</button>
-            <button class="btn color-moss">مقاسات كبيرة</button>
-            <button class="btn color-copper">خريف وشتاء</button>
+            <!-- ===== تجارب وطلبات التم ===== -->
+            <button class="btn half color-olive" onclick="toggleProducts('products-requests')">تجارب وطلبات التم</button>
+            <div id="products-requests" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/req1/200/200" alt="طلب 1">
+                    <div class="product-name">طلب 1</div>
+                    <div class="product-price">---</div>
+                    <button class="add-btn">📩 أرسل</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/req2/200/200" alt="طلب 2">
+                    <div class="product-name">طلب 2</div>
+                    <div class="product-price">---</div>
+                    <button class="add-btn">📩 أرسل</button>
+                </div>
+            </div>
 
-            <button class="btn color-charcoal">الجديد</button>
-            <button class="btn color-burgundy">الملابس السفلية</button>
-            <button class="btn color-teal">القصات</button>
+            <!-- ===== تجربة ===== -->
+            <button class="btn color-plum" onclick="toggleProducts('products-experience')">تجربة</button>
+            <div id="products-experience" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/exp1/200/200" alt="تجربة 1">
+                    <div class="product-name">تجربة 1</div>
+                    <div class="product-price">30</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/exp2/200/200" alt="تجربة 2">
+                    <div class="product-name">تجربة 2</div>
+                    <div class="product-price">40</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
 
-            <button class="btn color-navy">هوديز وسترات رياضية</button>
-            <button class="btn color-olive">قمصان بولو</button>
-            <button class="btn color-plum">قمصان كبيرة</button>
+            <!-- ===== متجر الترندات ===== -->
+            <button class="btn full section-title color-rust" onclick="toggleProducts('products-trend')">متجر الترندات</button>
+            <div id="products-trend" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/trend1/200/200" alt="ترند 1">
+                    <div class="product-name">ترند 1</div>
+                    <div class="product-price">120</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/trend2/200/200" alt="ترند 2">
+                    <div class="product-name">ترند 2</div>
+                    <div class="product-price">110</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/trend3/200/200" alt="ترند 3">
+                    <div class="product-name">ترند 3</div>
+                    <div class="product-price">95</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
 
-            <button class="btn color-slate">الملابس الخارجية</button>
-            <button class="btn color-amber">طقم منسق</button>
-            <button class="btn color-moss">جوارب</button>
+            <!-- ===== إطلالات ===== -->
+            <button class="btn color-slate" onclick="toggleProducts('products-looks')">إطلالات</button>
+            <div id="products-looks" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/look1/200/200" alt="إطلالة 1">
+                    <div class="product-name">إطلالة 1</div>
+                    <div class="product-price">150</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/look2/200/200" alt="إطلالة 2">
+                    <div class="product-name">إطلالة 2</div>
+                    <div class="product-price">180</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
 
-            <button class="btn color-copper">معاطف شتوية</button>
-            <button class="btn color-rust">ماكس محبوكة</button>
-            <button class="btn color-charcoal">تشيزات</button>
+            <!-- ===== مقاسات كبيرة ===== -->
+            <button class="btn color-moss" onclick="toggleProducts('products-sizes')">مقاسات كبيرة</button>
+            <div id="products-sizes" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/size1/200/200" alt="قميص XL">
+                    <div class="product-name">قميص XL</div>
+                    <div class="product-price">99</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/size2/200/200" alt="بنطلون XXL">
+                    <div class="product-name">بنطلون XXL</div>
+                    <div class="product-price">89</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
 
-            <button class="btn color-burgundy">أعمال</button>
-            <button class="btn color-teal">رياضي</button>
-            <button class="btn color-navy">حفلات</button>
+            <!-- ===== خريف وشتاء ===== -->
+            <button class="btn color-copper" onclick="toggleProducts('products-winter')">خريف وشتاء</button>
+            <div id="products-winter" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/winter1/200/200" alt="جاكيت شتوي">
+                    <div class="product-name">جاكيت شتوي</div>
+                    <div class="product-price">199</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/winter2/200/200" alt="كنزة صوف">
+                    <div class="product-name">كنزة صوف</div>
+                    <div class="product-price">129</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
 
-            <button class="btn color-olive">كاجوال</button>
+            <!-- ===== الجديد ===== -->
+            <button class="btn color-charcoal" onclick="toggleProducts('products-new')">الجديد</button>
+            <div id="products-new" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/new1/200/200" alt="وصل حديثاً 1">
+                    <div class="product-name">وصل حديثاً 1</div>
+                    <div class="product-price">75</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/new2/200/200" alt="وصل حديثاً 2">
+                    <div class="product-name">وصل حديثاً 2</div>
+                    <div class="product-price">85</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
 
-            <button class="btn full section-title color-gold">عروض كبرى</button>
+            <!-- ===== الملابس السفلية ===== -->
+            <button class="btn color-burgundy" onclick="toggleProducts('products-underwear')">الملابس السفلية</button>
+            <div id="products-underwear" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/under1/200/200" alt="بوكسر">
+                    <div class="product-name">بوكسر</div>
+                    <div class="product-price">39</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/under2/200/200" alt="تيشرت داخلي">
+                    <div class="product-name">تيشرت داخلي</div>
+                    <div class="product-price">49</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
 
-            <button class="btn color-plum">Just black for Sale</button>
-            <button class="btn color-slate">PAIRS</button>
-            <button class="btn color-moss">أنا</button>
+            <!-- ===== القصات ===== -->
+            <button class="btn color-teal" onclick="toggleProducts('products-cuts')">القصات</button>
+            <div id="products-cuts" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/cut1/200/200" alt="قصّة 1">
+                    <div class="product-name">قصّة 1</div>
+                    <div class="product-price">60</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/cut2/200/200" alt="قصّة 2">
+                    <div class="product-name">قصّة 2</div>
+                    <div class="product-price">70</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
 
-            <button class="btn half color-copper">حقيبة التسوق</button>
-            <button class="btn half color-rust">ترددات</button>
+            <!-- ===== هوديز وسترات رياضية ===== -->
+            <button class="btn color-navy" onclick="toggleProducts('products-hoodies')">هوديز وسترات رياضية</button>
+            <div id="products-hoodies" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/hood1/200/200" alt="هودي أسود">
+                    <div class="product-name">هودي أسود</div>
+                    <div class="product-price">139</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/hood2/200/200" alt="سترة رياضية">
+                    <div class="product-name">سترة رياضية</div>
+                    <div class="product-price">159</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
 
-            <button class="btn color-amber">الفئات</button>
+            <!-- ===== قمصان بولو ===== -->
+            <button class="btn color-olive" onclick="toggleProducts('products-polo')">قمصان بولو</button>
+            <div id="products-polo" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/polo1/200/200" alt="بولو أبيض">
+                    <div class="product-name">بولو أبيض</div>
+                    <div class="product-price">79</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/polo2/200/200" alt="بولو أزرق">
+                    <div class="product-name">بولو أزرق</div>
+                    <div class="product-price">79</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
 
-            <button class="btn full section-title color-burgundy">متجر</button>
+            <!-- ===== قمصان كبيرة ===== -->
+            <button class="btn color-plum" onclick="toggleProducts('products-bigshirts')">قمصان كبيرة</button>
+            <div id="products-bigshirts" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/big1/200/200" alt="قميص كبير 1">
+                    <div class="product-name">قميص كبير 1</div>
+                    <div class="product-price">89</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/big2/200/200" alt="قميص كبير 2">
+                    <div class="product-name">قميص كبير 2</div>
+                    <div class="product-price">99</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
+
+            <!-- ===== الملابس الخارجية ===== -->
+            <button class="btn color-slate" onclick="toggleProducts('products-outerwear')">الملابس الخارجية</button>
+            <div id="products-outerwear" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/outer1/200/200" alt="جاكيت جلد">
+                    <div class="product-name">جاكيت جلد</div>
+                    <div class="product-price">199</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/outer2/200/200" alt="معطف رسمي">
+                    <div class="product-name">معطف رسمي</div>
+                    <div class="product-price">229</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
+
+            <!-- ===== طقم منسق ===== -->
+            <button class="btn color-amber" onclick="toggleProducts('products-set')">طقم منسق</button>
+            <div id="products-set" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/set1/200/200" alt="طقم 1">
+                    <div class="product-name">طقم 1</div>
+                    <div class="product-price">149</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/set2/200/200" alt="طقم 2">
+                    <div class="product-name">طقم 2</div>
+                    <div class="product-price">169</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
+
+            <!-- ===== جوارب ===== -->
+            <button class="btn color-moss" onclick="toggleProducts('products-socks')">جوارب</button>
+            <div id="products-socks" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/sock1/200/200" alt="جوارب قطن">
+                    <div class="product-name">جوارب قطن</div>
+                    <div class="product-price">19</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/sock2/200/200" alt="جوارب صوف">
+                    <div class="product-name">جوارب صوف</div>
+                    <div class="product-price">29</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
+
+            <!-- ===== معاطف شتوية ===== -->
+            <button class="btn color-copper" onclick="toggleProducts('products-coats')">معاطف شتوية</button>
+            <div id="products-coats" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/coat1/200/200" alt="معطف صوف">
+                    <div class="product-name">معطف صوف</div>
+                    <div class="product-price">259</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/coat2/200/200" alt="معطف مطر">
+                    <div class="product-name">معطف مطر</div>
+                    <div class="product-price">189</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
+
+            <!-- ===== ماكس محبوكة ===== -->
+            <button class="btn color-rust" onclick="toggleProducts('products-knit')">ماكس محبوكة</button>
+            <div id="products-knit" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/knit1/200/200" alt="ماكس 1">
+                    <div class="product-name">ماكس 1</div>
+                    <div class="product-price">109</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/knit2/200/200" alt="ماكس 2">
+                    <div class="product-name">ماكس 2</div>
+                    <div class="product-price">119</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
+
+            <!-- ===== تشيزات ===== -->
+            <button class="btn color-charcoal" onclick="toggleProducts('products-cheese')">تشيزات</button>
+            <div id="products-cheese" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/cheese1/200/200" alt="تشيز 1">
+                    <div class="product-name">تشيز 1</div>
+                    <div class="product-price">45</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/cheese2/200/200" alt="تشيز 2">
+                    <div class="product-name">تشيز 2</div>
+                    <div class="product-price">55</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
+
+            <!-- ===== أعمال ===== -->
+            <button class="btn color-burgundy" onclick="toggleProducts('products-work')">أعمال</button>
+            <div id="products-work" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/work1/200/200" alt="بدلة رسمية">
+                    <div class="product-name">بدلة رسمية</div>
+                    <div class="product-price">299</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/work2/200/200" alt="قميص رسمي">
+                    <div class="product-name">قميص رسمي</div>
+                    <div class="product-price">89</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
+
+            <!-- ===== رياضي ===== -->
+            <button class="btn color-teal" onclick="toggleProducts('products-sport')">رياضي</button>
+            <div id="products-sport" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/sport1/200/200" alt="تيشرت رياضي">
+                    <div class="product-name">تيشرت رياضي</div>
+                    <div class="product-price">69</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/sport2/200/200" alt="شورت رياضي">
+                    <div class="product-name">شورت رياضي</div>
+                    <div class="product-price">59</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
+
+            <!-- ===== حفلات ===== -->
+            <button class="btn color-navy" onclick="toggleProducts('products-events')">حفلات</button>
+            <div id="products-events" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/event1/200/200" alt="بدلة حفلات">
+                    <div class="product-name">بدلة حفلات</div>
+                    <div class="product-price">349</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/event2/200/200" alt="قميص حفلات">
+                    <div class="product-name">قميص حفلات</div>
+                    <div class="product-price">119</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
+
+            <!-- ===== كاجوال ===== -->
+            <button class="btn color-olive" onclick="toggleProducts('products-casual')">كاجوال</button>
+            <div id="products-casual" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/casual1/200/200" alt="تيشرت كاجوال">
+                    <div class="product-name">تيشرت كاجوال</div>
+                    <div class="product-price">59</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/casual2/200/200" alt="بنطلون كاجوال">
+                    <div class="product-name">بنطلون كاجوال</div>
+                    <div class="product-price">79</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
+
+            <!-- ===== عروض كبرى ===== -->
+            <button class="btn full section-title color-gold" onclick="toggleProducts('products-offers')">عروض كبرى</button>
+            <div id="products-offers" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/offer1/200/200" alt="عرض 1">
+                    <div class="product-name">عرض 1</div>
+                    <div class="product-price">99</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/offer2/200/200" alt="عرض 2">
+                    <div class="product-name">عرض 2</div>
+                    <div class="product-price">149</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/offer3/200/200" alt="عرض 3">
+                    <div class="product-name">عرض 3</div>
+                    <div class="product-price">199</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
+
+            <!-- ===== Just black ===== -->
+            <button class="btn color-plum" onclick="toggleProducts('products-black')">Just black for Sale</button>
+            <div id="products-black" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/black1/200/200" alt="أسود 1">
+                    <div class="product-name">أسود 1</div>
+                    <div class="product-price">59</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/black2/200/200" alt="أسود 2">
+                    <div class="product-name">أسود 2</div>
+                    <div class="product-price">69</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
+
+            <!-- ===== PAIRS ===== -->
+            <button class="btn color-slate" onclick="toggleProducts('products-pairs')">PAIRS</button>
+            <div id="products-pairs" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/pair1/200/200" alt="زوج 1">
+                    <div class="product-name">زوج 1</div>
+                    <div class="product-price">39</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/pair2/200/200" alt="زوج 2">
+                    <div class="product-name">زوج 2</div>
+                    <div class="product-price">49</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
+
+            <!-- ===== أنا ===== -->
+            <button class="btn color-moss" onclick="toggleProducts('products-me')">أنا</button>
+            <div id="products-me" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/me1/200/200" alt="منتجي 1">
+                    <div class="product-name">منتجي 1</div>
+                    <div class="product-price">30</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/me2/200/200" alt="منتجي 2">
+                    <div class="product-name">منتجي 2</div>
+                    <div class="product-price">40</div>
+                    <button class="add-btn">➕ أضف</button>
+                </div>
+            </div>
+
+            <!-- ===== حقيبة التسوق ===== -->
+            <button class="btn half color-copper" onclick="toggleProducts('products-cart')">حقيبة التسوق</button>
+            <div id="products-cart" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/cart1/200/200" alt="سلة 1">
+                    <div class="product-name">سلة 1</div>
+                    <div class="product-price">---</div>
+                    <button class="add-btn">🛒 عرض</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/cart2/200/200" alt="سلة 2">
+                    <div class="product-name">سلة 2</div>
+                    <div class="product-price">---</div>
+                    <button class="add-btn">🛒 عرض</button>
+                </div>
+            </div>
+
+            <!-- ===== ترددات ===== -->
+            <button class="btn half color-rust" onclick="toggleProducts('products-freq')">ترددات</button>
+            <div id="products-freq" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/freq1/200/200" alt="تردد 1">
+                    <div class="product-name">تردد 1</div>
+                    <div class="product-price">---</div>
+                    <button class="add-btn">📡 عرض</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/freq2/200/200" alt="تردد 2">
+                    <div class="product-name">تردد 2</div>
+                    <div class="product-price">---</div>
+                    <button class="add-btn">📡 عرض</button>
+                </div>
+            </div>
+
+            <!-- ===== الفئات ===== -->
+            <button class="btn color-amber" onclick="toggleProducts('products-categories')">الفئات</button>
+            <div id="products-categories" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/cat1/200/200" alt="فئة 1">
+                    <div class="product-name">فئة 1</div>
+                    <div class="product-price">---</div>
+                    <button class="add-btn">🔍 استعراض</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/cat2/200/200" alt="فئة 2">
+                    <div class="product-name">فئة 2</div>
+                    <div class="product-price">---</div>
+                    <button class="add-btn">🔍 استعراض</button>
+                </div>
+            </div>
+
+            <!-- ===== متجر ===== -->
+            <button class="btn full section-title color-burgundy" onclick="toggleProducts('products-store')">متجر</button>
+            <div id="products-store" class="products-container">
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/store1/200/200" alt="جميع المنتجات">
+                    <div class="product-name">جميع المنتجات</div>
+                    <div class="product-price">---</div>
+                    <button class="add-btn">🛍️ تسوق</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/store2/200/200" alt="عروض خاصة">
+                    <div class="product-name">عروض خاصة</div>
+                    <div class="product-price">---</div>
+                    <button class="add-btn">🛍️ تسوق</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/store3/200/200" alt="الأكثر مبيعاً">
+                    <div class="product-name">الأكثر مبيعاً</div>
+                    <div class="product-price">---</div>
+                    <button class="add-btn">🛍️ تسوق</button>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://picsum.photos/seed/store4/200/200" alt="تخفيضات">
+                    <div class="product-name">تخفيضات</div>
+                    <div class="product-price">---</div>
+                    <button class="add-btn">🛍️ تسوق</button>
+                </div>
+            </div>
 
         </div>
 
@@ -302,5 +941,20 @@
             ⚡ جميع الحقوق محفوظة © 2026
         </div>
     </div>
+
+    <script>
+        function toggleProducts(id) {
+            var container = document.getElementById(id);
+            if (container.classList.contains('active')) {
+                container.classList.remove('active');
+            } else {
+                var allContainers = document.querySelectorAll('.products-container');
+                allContainers.forEach(function(el) {
+                    el.classList.remove('active');
+                });
+                container.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
