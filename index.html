@@ -1,170 +1,306 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html dir="rtl" lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>الأخوين | للملابس</title>
-
+    <title>وفر الإلكتروني</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #11100f;
-            color: #eee;
-        }
-
-        header {
-            background: #0a0908;
-            padding: 25px 15px;
-            text-align: center;
-            border-bottom: 1px solid #5c4a2d;
-        }
-
-        .logo {
-            font-size: 32px;
-            font-weight: bold;
-            color: #c7a96b;
-            margin: 0;
-        }
-
-        .subtitle {
-            color: #aaa;
-            margin-top: 8px;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 55px 20px;
-            background: linear-gradient(#151311, #0d0c0b);
-        }
-
-        .hero h1 {
-            font-size: 34px;
-            color: #c7a96b;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            color: #bbb;
-        }
-
-        .categories {
+            background: #1a1410;
             display: flex;
             justify-content: center;
-            gap: 10px;
-            padding: 20px 10px;
-            flex-wrap: wrap;
-        }
-
-        .category {
-            background: #1b1917;
-            color: #c7a96b;
-            border: 1px solid #5c4a2d;
-            padding: 12px 20px;
-            border-radius: 6px;
-        }
-
-        .products {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+            align-items: center;
+            min-height: 100vh;
             padding: 20px;
+            font-family: 'Cairo', sans-serif;
         }
 
-        .product {
-            background: #1b1917;
-            border: 1px solid #302a22;
-            border-radius: 10px;
-            padding: 12px;
-            text-align: center;
-        }
-
-        .product img {
+        .container {
+            max-width: 520px;
             width: 100%;
-            height: 190px;
-            object-fit: cover;
-            border-radius: 7px;
+            background: #2a211c;
+            border-radius: 24px;
+            padding: 30px 20px 25px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 215, 180, 0.05);
+            border: 1px solid #3d322b;
         }
 
-        .product h3 {
-            color: #eee;
-        }
-
-        .price {
-            color: #c7a96b;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .buy {
-            background: #c7a96b;
-            color: #111;
-            border: none;
-            padding: 11px 25px;
-            border-radius: 6px;
-            font-weight: bold;
-        }
-
-        footer {
+        .header {
             text-align: center;
-            padding: 30px;
-            color: #777;
-            border-top: 1px solid #302a22;
+            padding-bottom: 18px;
+            margin-bottom: 22px;
+            border-bottom: 2px solid #3d322b;
+            position: relative;
+        }
+
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #b8956e, transparent);
+        }
+
+        .store-name-ar {
+            font-family: 'Cairo', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            color: #d4c5b2;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        .store-name-en {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: #8a7a6b;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 2px;
+            opacity: 0.8;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .store-name-en span {
+            color: #b8956e;
+            font-weight: 600;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 12px;
+            padding: 14px 6px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: #f0e6dc;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            word-break: break-word;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            font-family: 'Cairo', sans-serif;
+            letter-spacing: 0.3px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .btn:active {
+            transform: translateY(0px) scale(0.98);
+        }
+
+        .color-gold {
+            background: linear-gradient(145deg, #8b6f4c, #6d5438);
+        }
+        .color-gold:hover {
+            background: linear-gradient(145deg, #a0805a, #7d6242);
+        }
+
+        .color-amber {
+            background: linear-gradient(145deg, #a67c4e, #7a5c38);
+        }
+        .color-amber:hover {
+            background: linear-gradient(145deg, #b88e5e, #8a6a44);
+        }
+
+        .color-burgundy {
+            background: linear-gradient(145deg, #6d3a4a, #4f2835);
+        }
+        .color-burgundy:hover {
+            background: linear-gradient(145deg, #834a5c, #5d3040);
+        }
+
+        .color-teal {
+            background: linear-gradient(145deg, #2d5e5e, #1d4242);
+        }
+        .color-teal:hover {
+            background: linear-gradient(145deg, #3a7272, #255050);
+        }
+
+        .color-charcoal {
+            background: linear-gradient(145deg, #4a4a4a, #2e2e2e);
+        }
+        .color-charcoal:hover {
+            background: linear-gradient(145deg, #5a5a5a, #3a3a3a);
+        }
+
+        .color-navy {
+            background: linear-gradient(145deg, #2a3f5e, #1a2a42);
+        }
+        .color-navy:hover {
+            background: linear-gradient(145deg, #365074, #223456);
+        }
+
+        .color-olive {
+            background: linear-gradient(145deg, #4d5440, #33382a);
+        }
+        .color-olive:hover {
+            background: linear-gradient(145deg, #5d6650, #3d4434);
+        }
+
+        .color-plum {
+            background: linear-gradient(145deg, #5e3a5e, #422442);
+        }
+        .color-plum:hover {
+            background: linear-gradient(145deg, #724872, #503050);
+        }
+
+        .color-rust {
+            background: linear-gradient(145deg, #7a4a32, #553225);
+        }
+        .color-rust:hover {
+            background: linear-gradient(145deg, #8e5840, #66402e);
+        }
+
+        .color-slate {
+            background: linear-gradient(145deg, #4a505a, #32363e);
+        }
+        .color-slate:hover {
+            background: linear-gradient(145deg, #5a626e, #3e424c);
+        }
+
+        .color-moss {
+            background: linear-gradient(145deg, #4d5a3a, #343f28);
+        }
+        .color-moss:hover {
+            background: linear-gradient(145deg, #5d6e46, #3e4d30);
+        }
+
+        .color-copper {
+            background: linear-gradient(145deg, #7a5a3a, #5a4230);
+        }
+        .color-copper:hover {
+            background: linear-gradient(145deg, #8e6e4a, #6a5038);
+        }
+
+        .full {
+            grid-column: span 3;
+            padding: 16px 6px;
+            font-size: 15px;
+            border-radius: 14px;
+        }
+
+        .half {
+            grid-column: span 2;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255, 215, 180, 0.08);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "✦";
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            opacity: 0.5;
+        }
+
+        .footer {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid #3d322b;
+            text-align: center;
+            color: #6a5d50;
+            font-size: 12px;
+            font-family: 'Cairo', sans-serif;
         }
     </style>
 </head>
-
 <body>
+    <div class="container">
 
-<header>
-    <h1 class="logo">الأخوين</h1>
-    <div class="subtitle">للملابس الرجالية والنسائية والولادية</div>
-</header>
+        <div class="header">
+            <div class="store-name-ar">🛍️ وفر الإلكتروني</div>
+            <div class="store-name-en"><span>W</span>affer <span>E</span>-<span>C</span>ommerce</div>
+        </div>
 
-<section class="hero">
-    <h1>مرحباً بكم في الأخوين</h1>
-    <p>أناقة تليق بك</p>
-</section>
+        <div class="grid">
 
-<div class="categories">
-    <div class="category">رجالي</div>
-    <div class="category">نسائي</div>
-    <div class="category">ولادي</div>
-</div>
+            <button class="btn full section-title color-gold">دينيميرات رجال أوفر سايز</button>
 
-<section class="products">
+            <button class="btn color-amber">كل</button>
+            <button class="btn color-burgundy">تسوق</button>
+            <button class="btn color-teal">أطفال</button>
 
-    <div class="product">
-        <img src="https://via.placeholder.com/400x500" alt="ملابس رجالية">
-        <h3>منتج رجالي</h3>
-        <p class="price">150 ريال سعودي</p>
-        <button class="buy">شراء</button>
+            <button class="btn half color-navy">التمويل التجاري</button>
+            <button class="btn half color-olive">تجارب وطلبات التم</button>
+
+            <button class="btn color-plum">تجربة</button>
+
+            <button class="btn full section-title color-rust">متجر الترندات</button>
+
+            <button class="btn color-slate">إطلالات</button>
+            <button class="btn color-moss">مقاسات كبيرة</button>
+            <button class="btn color-copper">خريف وشتاء</button>
+
+            <button class="btn color-charcoal">الجديد</button>
+            <button class="btn color-burgundy">الملابس السفلية</button>
+            <button class="btn color-teal">القصات</button>
+
+            <button class="btn color-navy">هوديز وسترات رياضية</button>
+            <button class="btn color-olive">قمصان بولو</button>
+            <button class="btn color-plum">قمصان كبيرة</button>
+
+            <button class="btn color-slate">الملابس الخارجية</button>
+            <button class="btn color-amber">طقم منسق</button>
+            <button class="btn color-moss">جوارب</button>
+
+            <button class="btn color-copper">معاطف شتوية</button>
+            <button class="btn color-rust">ماكس محبوكة</button>
+            <button class="btn color-charcoal">تشيزات</button>
+
+            <button class="btn color-burgundy">أعمال</button>
+            <button class="btn color-teal">رياضي</button>
+            <button class="btn color-navy">حفلات</button>
+
+            <button class="btn color-olive">كاجوال</button>
+
+            <button class="btn full section-title color-gold">عروض كبرى</button>
+
+            <button class="btn color-plum">Just black for Sale</button>
+            <button class="btn color-slate">PAIRS</button>
+            <button class="btn color-moss">أنا</button>
+
+            <button class="btn half color-copper">حقيبة التسوق</button>
+            <button class="btn half color-rust">ترددات</button>
+
+            <button class="btn color-amber">الفئات</button>
+
+            <button class="btn full section-title color-burgundy">متجر</button>
+
+        </div>
+
+        <div class="footer">
+            ⚡ جميع الحقوق محفوظة © 2026
+        </div>
     </div>
-
-    <div class="product">
-        <img src="https://via.placeholder.com/400x500" alt="ملابس نسائية">
-        <h3>منتج نسائي</h3>
-        <p class="price">180 ريال سعودي</p>
-        <button class="buy">شراء</button>
-    </div>
-
-    <div class="product">
-        <img src="https://via.placeholder.com/400x500" alt="ملابس ولادية">
-        <h3>منتج ولادي</h3>
-        <p class="price">100 ريال سعودي</p>
-        <button class="buy">شراء</button>
-    </div>
-
-</section>
-
-<footer>
-    © 2026 متجر الأخوين
-</footer>
-
 </body>
 </html>
